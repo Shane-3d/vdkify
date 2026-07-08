@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vdkify — Sign in</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128640;</text></svg>">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="login-body">
+  <main class="login-wrap">
+    <form class="card login-card" id="login-form">
+      <div class="login-brand">
+        <span class="brand-mark" aria-hidden="true">▲</span>
+        <h1>vdkify</h1>
+        <span class="login-sub" id="login-sub">checking…</span>
+      </div>
+
+      <label class="field" id="pass-field" hidden>
+        <span id="pass-label">Password</span>
+        <input class="input" id="login-pass" type="password" autocomplete="current-password" required>
+      </label>
+      <label class="field" id="pass2-field" hidden>
+        <span>Confirm password</span>
+        <input class="input" id="login-pass2" type="password" autocomplete="new-password">
+      </label>
+
+      <button class="btn btn-primary login-submit" type="submit" id="login-submit" hidden>Sign in</button>
+      <div class="login-error" id="login-error" role="alert"></div>
+    </form>
+  </main>
+
+  <script src="js/login.js"></script>
+</body>
+</html>

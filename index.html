@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vdkify</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128640;</text></svg>">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#/">
+      <span class="brand-mark" aria-hidden="true">▲</span>
+      <div>
+        <h1>vdkify</h1>
+        <span class="brand-sub">deploy anything</span>
+      </div>
+    </a>
+    <div class="topbar-right">
+      <div class="tunnel-box" id="tunnel-box"></div>
+      <span class="domain-chip" id="domain-chip"></span>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle color theme">
+        <span class="theme-icon" aria-hidden="true"></span>
+      </button>
+      <button class="btn btn-ghost" id="sign-out" type="button">Sign out</button>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- ============ overview ============ -->
+    <div id="view-overview" hidden>
+      <div class="page-head">
+        <h2>Sites</h2>
+        <span class="muted" id="sites-summary"></span>
+        <button class="btn btn-primary" id="new-site-toggle" type="button">+ New site</button>
+      </div>
+
+      <section class="card new-site" id="new-site-panel" hidden>
+        <h3 class="card-title">Create a new site</h3>
+        <form class="new-site-form" id="new-site-form">
+          <label class="field grow">
+            <span>Site name <em class="hint">→ becomes your domain</em></span>
+            <input class="input" id="ns-name" type="text" placeholder="my-app" pattern="[a-z0-9]([a-z0-9-]{0,38}[a-z0-9])?" required>
+          </label>
+          <label class="field grow">
+            <span>GitHub repo <em class="hint">(optional — deploys right away)</em></span>
+            <input class="input" id="ns-repo" type="text" placeholder="owner/repo or github.com URL">
+          </label>
+          <label class="field">
+            <span>Branch <em class="hint">(optional)</em></span>
+            <input class="input" id="ns-branch" type="text" placeholder="default">
+          </label>
+          <label class="field">
+            <span>Token <em class="hint">(private repos)</em></span>
+            <input class="input" id="ns-token" type="password" placeholder="ghp_…" autocomplete="off">
+          </label>
+          <button class="btn btn-primary" type="submit" id="ns-submit">Create site</button>
+        </form>
+        <div class="form-note" id="ns-note" role="status"></div>
+      </section>
+
+      <div class="sites-grid" id="sites-grid"></div>
+
+      <div class="empty" id="sites-empty" hidden>
+        <div class="empty-mark">▲</div>
+        <p>No sites yet. Hit <b>+ New site</b>, drop a folder or connect a GitHub repo,
+        and you're live on your own domain in seconds.</p>
+      </div>
+
+      <section id="activity-section" hidden>
+        <div class="page-head sub">
+          <h2>Recent activity</h2>
+        </div>
+        <div class="card activity-card" id="activity-list"></div>
+      </section>
+    </div>
+
+    <!-- ============ site detail ============ -->
+    <div id="view-site" hidden>
+      <a class="back-link" href="#/">← Sites</a>
+      <div id="site-detail"></div>
+    </div>
+  </main>
+
+  <div class="toast" id="toast" role="status" hidden></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
