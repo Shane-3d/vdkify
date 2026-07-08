@@ -1,0 +1,5 @@
+# server config — copy env/.env.example to env/.env and edit
+env/.env
+
+# deployed sites + database
+data/
